@@ -1,0 +1,8 @@
+Question: Type '"/confirmation"' is not assignable to type 'RelativePathString | ExternalPathString | "/explore" | "/" | "/_sitemap"'.
+Answer: 
+The error is from stale Expo Router types. 
+The generated routes in router.d.ts still list /explore, even though that route is gone, 
+and don’t list the new confirmation.tsx.
+Stop the Expo dev server and restart it with:
+That should regenerate the route types. Also, confirmation.tsx appears empty, so make sure it exports a default screen component.
+
